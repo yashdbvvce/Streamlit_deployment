@@ -3,6 +3,8 @@ from langchain_community.document_loaders import TextLoader
 from langchain_chroma import Chroma
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
+from chromadb.config import Settings
+
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -34,7 +36,7 @@ def create_vector_store():
         )
 
         # Create and save a vector store
-        db = Chroma.from_documents(docs, embeddings, persist_directory=persistant_directory)
+        db = Chroma.from_documents(docs, embeddings, persist_directory=persistant_directory, client_settings=Settings(chroma_db_impl="memory"))
         print("Vector store created successfully")
 
     else:
