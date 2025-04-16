@@ -3,10 +3,6 @@ from langchain_community.document_loaders import TextLoader
 from langchain_chroma import Chroma
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
-from chromadb.config import Settings
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import os
 from dotenv import load_dotenv
