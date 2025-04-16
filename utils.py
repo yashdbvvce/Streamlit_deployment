@@ -7,6 +7,9 @@ from langchain_core.prompts import ChatPromptTemplate
 import os
 from dotenv import load_dotenv
 load_dotenv()
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash')
 
