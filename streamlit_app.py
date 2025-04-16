@@ -5,10 +5,13 @@ from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmb
 from dotenv import load_dotenv
 load_dotenv()
 
+st.header("Romeo and Juliet Playground")
+
 def generate_response(query):
     llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash')
     create_vector_store()
     combined_docs = get_similar_docs(query)
+    print(f"Documents Retrived {combined_docs}")
     prompt_template = """
        // Your prompt template goes here. // -> replace this with a valid prompt
        Here are the docs

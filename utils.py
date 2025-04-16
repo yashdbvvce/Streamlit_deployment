@@ -34,7 +34,7 @@ def create_vector_store():
         )
 
         # Create and save a vector store
-        db = Chroma.from_documents(docs, embeddings, persist_directory=persistant_directory, client_settings=Settings(chroma_db_impl="memory"))
+        db = Chroma.from_documents(docs, embeddings, persist_directory=persistant_directory)
         print("Vector store created successfully")
 
     else:
