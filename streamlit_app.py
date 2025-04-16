@@ -3,11 +3,7 @@ import time
 from utils import *
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
-os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 load_dotenv()
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 def generate_response(query):
     llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash')
